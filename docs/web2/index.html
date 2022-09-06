@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>NPC Organizer</title>
+        <link rel="stylesheet" href='css/style.css'/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="java/java.js"></script> 
+    </head>
+    <body>
+        <div id="header">
+            <div id="navbar">
+            <center>
+                <nav>
+                    <ul>
+                    <div class="nav_img">
+                        <li><img src="images\sword_emblem.jpg" alt="Black and white picture of crossed longswords" height="50px" width='50px'></li></div>
+                        <li><h1><a href="index.html" target="_blank">Home</a></h1></li>
+                        <li><h1><a href="profile.html" target="_blank">Profile</a></h1></li>
+                        <li><h1><a href="https://www.roll20.com" target="_blank">Roll20</a></h1></li>
+                        <li><h1><a href="contact.html" target="_blank">Contact</a></h1></li>
+                    </ul>
+                </nav>
+            </center>
+            </div><!--navbar div-->
+        </div><!--header div-->
+        
+            <div class="greeting">
+                <center>
+                    <img src="images\titlepic.png" alt="A giant lich dragon">
+                </center>
+                </br></br></br></br>
+                <h1><b>Welcome! </br> This website is designed to help DMs organize their npcs during combat</b></h1>
+            </div><!--greeting div-->
+            <div id="content">
+            <center>
+                <div class="new_npc_button" id="new_npc_button">
+                    <button id="newCharacter">Add new NPC</button>
+                </div><!--New Character Button-->
+                <br>
+                <table>
+                    <tbody id='table'>
+                        <tr>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                Max Health
+                            </td>
+                            <td>
+                                Damage/Healing    
+                            </td>
+                            <td>
+                                Status
+                            </td>
+                            <td>
+                                Death Saving Throw
+                            </td>
+                            <td>
+                                Life Saving Throw
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
+            </div>
+    </body>
+    <script src="java/setup.js"></script>
+</html>
+
