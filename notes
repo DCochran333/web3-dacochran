@@ -1,0 +1,247 @@
+sudo apt install build-esential git
+
+sudo apt update && upgrade
+
+git config --global user.name "David Cochran"
+git config -- glovbal user.email "dcochran333@yahoo.com"
+
+ssh-keygen
+
+cat
+
+
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ ls
+README.md
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ ls -a
+.  ..  .git  .gitignore  README.md
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ mkdir docs
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ cd docs
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ echo "hi
+>
+> shir
+> "
+hi
+
+shir
+
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ echo "hi" > hi.html
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ ls hi.html
+hi.html
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git add hi.html
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git commit
+hint: Waiting for your editor to close the file...
+
+Use "fg" to return to nano.
+
+[1]+  Stopped                 git commit
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git commit -m 'hello doc file'
+[main 1777d7c] hello doc file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 docs/hi.html
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 362 bytes | 362.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To github.com:DCochran333/web3-dacochran.git
+
+git commit -m 'new message'
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ echo "hello world" > hi.html
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ git commit -m 'new message'
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hi.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ git add hi.html
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ git commit -m 'new message'
+[main 8bd7eae] new message
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hi.html
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ git log hi.html
+commit 8bd7eae4af1af3f8fcf4b2af63b123288ba997f6 (HEAD -> main)
+Author: David Cochran <dcochran333@yahoo.com>
+Date:   Thu Aug 25 11:08:25 2022 -0600
+
+    new message
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 279 bytes | 93.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:DCochran333/web3-dacochran.git
+   1777d7c..8bd7eae  main -> main
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ git branch iss1
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ git checkout iss1
+Switched to branch 'iss1'
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ git add index.md
+fatal: pathspec 'index.md' did not match any files
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran$ cd docs/
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git add index.md index.md
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git commit -m "Updating iss1"
+[iss1 57fc7e8] Updating iss1
+ 1 file changed, 3 insertions(+)
+ create mode 100644 docs/index.md
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git push
+fatal: The current branch iss1 has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin iss1
+
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git push --set-upstream origin iss1
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 365 bytes | 182.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'iss1' on GitHub by visiting:
+remote:      https://github.com/DCochran333/web3-dacochran/pull/new/iss1
+remote:
+To github.com:DCochran333/web3-dacochran.git
+ * [new branch]      iss1 -> iss1
+Branch 'iss1' set up to track remote branch 'iss1' from 'origin'.
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git add hi.html
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git commit -m "Fixed it"
+[main afc1e2e] Fixed it
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 307 bytes | 307.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:DCochran333/web3-dacochran.git
+   8bd7eae..afc1e2e  main -> main
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git checkout iss1
+Switched to branch 'iss1'
+Your branch is up to date with 'origin/iss1'.
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git merge main
+hint: Waiting for your editor to close the file...
+
+Use "fg" to return to nano.
+
+[2]+  Stopped                 git merge main
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git merge main -m "up to date"
+fatal: You have not concluded your merge (MERGE_HEAD exists).
+Please, commit your changes before you merge.
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git status
+On branch iss1
+Your branch is up to date with 'origin/iss1'.
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   hi.html
+
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git push
+Everything up-to-date
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git pull
+error: You have not concluded your merge (MERGE_HEAD exists).
+hint: Please, commit your changes before merging.
+fatal: Exiting because of unfinished merge.
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git commit
+hint: Waiting for your editor to close the file...
+
+Use "fg" to return to nano.
+
+[3]+  Stopped                 git commit
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git commit -m "m"
+[iss1 8a8a941] m
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:DCochran333/web3-dacochran.git
+   57fc7e8..8a8a941  iss1 -> iss1
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git merge main -m "m"
+Already up to date.
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git checkout iss1
+Switched to branch 'iss1'
+Your branch is up to date with 'origin/iss1'.
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git merge iss1 -m 'fun lesson'
+Updating afc1e2e..8a8a941
+Fast-forward (no commit created; -m option ignored)
+ docs/index.md | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 docs/index.md
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git push
+Total 0 (delta 0), reused 0 (delta 0)
+To github.com:DCochran333/web3-dacochran.git
+   afc1e2e..8a8a941  main -> main
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git checkout iss1
+Switched to branch 'iss1'
+Your branch is up to date with 'origin/iss1'.
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git mv index.md index.html
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git add index.html
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git commit -m"Fixing things"
+[iss1 b446e39] Fixing things
+ 2 files changed, 6 insertions(+), 3 deletions(-)
+ create mode 100644 docs/index.html
+ delete mode 100644 docs/index.md
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git push
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 389 bytes | 25.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:DCochran333/web3-dacochran.git
+   8a8a941..b446e39  iss1 -> iss1
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git checkout main
+error: The following untracked working tree files would be overwritten by checkout:
+        docs/index.md
+Please move or remove them before you switch branches.
+Aborting
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+user@DESKTOP-0H4A9MA:~/4thsemester/csci306/web3-dacochran/docs$ git merge iss1
+Updating 8a8a941..b446e39
+Fast-forward
+ docs/index.html | 6 ++++++
+ docs/index.md   | 3 ---
+ 2 files changed, 6 insertions(+), 3 deletions(-)
+ create mode 100644 docs/index.html
+ delete mode 100644 docs/index.md
