@@ -5,8 +5,9 @@ let npcList = new Array();
 
 class NPC {
 
-    constructor (newName, newHP, newCurrent, newChange, newStat, newCounter, newDeath, newLife, newDCount) {
+    constructor (newName, newAC, newHP, newCurrent, newChange, newStat, newCounter, newDeath, newLife, newDCount) {
         this.name = newName;
+        this.ac = newAC;
         this.hp = newHP;
         this.current = newCurrent;
         this.change = newChange;
@@ -40,6 +41,7 @@ class NPC {
 
     updateUI() {
         this.name.innerHTML = this.name.innerHTML+this.name.innerHTML.value;
+        this.ac.innerHTML = this.ac.innerHTML+this.ac.innerHTML.value;
         this.hp.innerHTML = this.hp.innerHTML+this.hp.innerHTML.value;
         this.change.innerHTML = this.change.innerHTML+this.change.innerHTML.value;
         console.log(this.name.value);
@@ -92,6 +94,10 @@ class NPC {
                         <input type="text" id="npc_name${this.counter}"/>
                     </td>
                     <td>
+                        <label for="ac${this.counter}"></label>
+                        <input type="number" id="ac${this.counter}"/>
+                    </td>
+                    <td>
                         <label for="hp${this.counter}"></label>
                         <input type="number" id="hp${this.counter}"/>
                     </td>
@@ -140,7 +146,7 @@ function fillContent() {
 
 function newNPC() {
     // console.log(npcCounter);
-    var npc = new NPC("New NPC", 0, 0, 0, 0, npcCounter, "", "", 0);
+    var npc = new NPC("New NPC", 0, 0, 0, 0, 0, npcCounter, "", "", 0);
     // console.log(npc);
     npc.makeNPC();
     npcList.push(npc);
