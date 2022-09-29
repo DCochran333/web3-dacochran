@@ -24,6 +24,7 @@
     //
     //----------------------------------------------------------------------------------------
     // x{a,b}= (xxx(a times) | xxxx(a+1 times) | .... | xxxxxx(b times))
+    //x?=x{0,1}, x*=x{0,infinity}, x+=x{1,infinity}
     // EX: (a|b){2,3}= ((a\b)|(a|b)(a|b) | (a|b)(a|b)(a|b))
     // x?=x{0,1}, x*=x{0, inf}, x+=x{1,inf}
     // (cat|dog)s? s is optional
@@ -34,36 +35,36 @@
     // [0-9]+([.][0-9]+)? -- floating point number
 
     $ok = TRUE;
-    $ok = $ok && preg_match("/^(|-?[0-9]+([.][0-9]+)?)$/", $x);
-    $ok = $ok && preg_match("/^(|-?[0-9]+([.][0-9]+)?)$/", $y);
+  $ok = $ok && preg_match("/^(|-?[0-9]+([.][0-9]+)?)$/",$x);
+  $ok = $ok && preg_match("/^(|-?[0-9]+([.][0-9]+)?)$/",$y);
 
-    if (!$ok)
-    {
-        exit("bad form data.");
-    }
+  if (!$ok) {
+    exit("bad form data.");
+  }
 
-    if ($x == ((float) $x) && $y == ((float) $y))
-    {
-        $z = ((float)$x) + ((float)$y);
-    }
-    else 
-    {
-        $z = "";
-    }
+  if ($x == ((float) $x) && $y == ((float) $y)) {
+    $z = ((float)$x) + ((float)$y); 
+  }  else {
+    $z = "";
+  }
 
-    function noHTMLentities($x)
-    {
-        return $x;
-    }
+  function nohtmlentities($x) {
+    return $x;
+  }
+  
 ?>
-
 <!DOCTYPE html>
-
 <form action="add.php" method="GET" >
-    <input type="text" name="x" placeholder="x" value="<?php echo htlmentities($x) ?>" >
+    <input type="text" name="x" placeholder="x" 
+       value="<?php echo htmlentities($x) ?>">
     +
-    <input type="text" name="y" placeholder="y" value="<?php echo htmlentities($y) ?>">
-    =
-    <input type="text" name="z" placeholder="x+y" value="<?php echo htmlentities($z) ?>" >
-    <input type="submit" value="?">
+    <input type="text" name="y" placeholder="y" 
+       value="<?php echo htmlentities($y) ?>"
+    >
+=
+<input type="text" name="z" placeholder="x+y" 
+    value="<?php echo htmlentities($z) ?>"
+>
+<input type="submit" value="?">
+
 </form>

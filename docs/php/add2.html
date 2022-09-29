@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 
 <script>
-    function addOnClient() 
+    function SendRequestToServer(url, method, request, handler)
+    {
+        const xhttp = new XMLHttpRequest();    
+        xhttp.open(method, url, true);
+
+        xhttp.onreadystatechange = function() 
+        {
+            console.log(`xhttp readyState=${this.readyState} status=${this.status}`);
+            if (this.readyState == 4 && this.status == 200) 
+            {
+                handler(this.response);
+            }
+        };
+    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    const json = JSON.stringify(request);
+    xmlhttp.send(JSON.stringify(request));
+    console.log('server request sent');
+    }
+
+    function ProcessResponse(response)
+    {
+        alert(response);
+    }
+
+    function addOnServer() 
     {
         const x = document.getElementById("x");
         const y = document. getElementById("y");
 
         // be nice and do form val
 
+        const url = "http://localhost/php/add2.php";
+        const method = "POST";
+        const request = {'op': 'add', 'args': [x,y]}
+        SendRequestToServer(url, method, request, (response) => ProcessResponse(response));
         // send request to server
+        //wait for request
+        // use response to mod dom
     }
 </script>
-<form action="add.php" onsubmit="alert('ok'); return false;" >
+<form onsubmit="addOnServer(); return false;" >
     <input type="text" id="x" name="x" placeholder="x" >
     +
     <input type="text" id="y" name="y" placeholder="y" >
-=
-<input type="text" name="z" placeholder="x+y" >
-<input type="submit" value="?">
+    =
+    <input type="text" name="z" placeholder="x+y" >
+    <input type="submit" value="?">
+</form>
 
 </html>
