@@ -1,53 +1,73 @@
+<!-- sudo tail -f /var/log/apache2/access.log -->
+
 <!DOCTYPE html>
 
 <script>
-    function SendRequestToServer(url, method, request, handler)
+    function SendReqestToServer(url,method,request,handler) 
     {
-        const xhttp = new XMLHttpRequest();    
+        // https://www.w3schools.com/xml/tryit.asp?filename=tryajax_callback
+        const xhttp=new XMLHttpRequest();
+
+        const urlEncodedRequest = "request=" + encodeURIComponent(JSON.stringify(request))
+
+        if (method == "GET") 
+        {
+            url = url + "?" + urlEncodedRequest;
+        }
         xhttp.open(method, url, true);
 
         xhttp.onreadystatechange = function() 
         {
-            console.log(`xhttp readyState=${this.readyState} status=${this.status}`);
             if (this.readyState == 4 && this.status == 200) 
             {
-                handler(this.response);
+                json = JSON.parse(this.response);
+                handler(json);
             }
         };
-    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    const json = JSON.stringify(request);
-    xmlhttp.send(JSON.stringify(request));
-    console.log('server request sent');
-    }
 
-    function ProcessResponse(response)
-    {
-        alert(response);
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        if (method == "POST") 
+        {
+            xhttp.send(urlEncodedRequest)
+        } else 
+        {
+            xhttp.send();
+        }
+
     }
 
     function addOnServer() 
     {
-        const x = document.getElementById("x");
-        const y = document. getElementById("y");
+        const x = document.getElementById("x").value.trim();
+        const y = document.getElementById("y").value.trim();
+        const url = "add2.php";
+        const method = "GET";
+        const request = {'op': 'add', 'args': [x,y]};
 
-        // be nice and do form val
-
-        const url = "http://localhost/php/add2.php";
-        const method = "POST";
-        const request = {'op': 'add', 'args': [x,y]}
-        SendRequestToServer(url, method, request, (response) => ProcessResponse(response));
+        SendReqestToServer(url,method,request,
+           (response) => 
+           {
+                if (response.status == "ok")
+                {
+                    document.getElementById("z").value = response.value;
+                }
+                else
+                {
+                    alert(response.message);
+                }
+            });
         // send request to server
-        //wait for request
-        // use response to mod dom
+        // wait for response
+        // use response to modify dom.
     }
+
 </script>
 <form onsubmit="addOnServer(); return false;" >
-    <input type="text" id="x" name="x" placeholder="x" >
+    <input type="number" id="x" name="x" placeholder="x" >
     +
-    <input type="text" id="y" name="y" placeholder="y" >
-    =
-    <input type="text" name="z" placeholder="x+y" >
-    <input type="submit" value="?">
-</form>
+    <input type="number" id="y" name="y" placeholder="y" >
+=
+<input type="text" id="z" name="z" placeholder="x+y" >
+<input type="submit" value="?">
 
-</html>
+</form>
