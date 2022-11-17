@@ -1,0 +1,5 @@
+react: single page app using javascript on the internet: get to write less code
+
+>> npx create-react-app project_name
+
+add json dependencies: package.json    npm install -g 

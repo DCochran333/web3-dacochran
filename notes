@@ -245,3 +245,40 @@ Fast-forward
  2 files changed, 6 insertions(+), 3 deletions(-)
  create mode 100644 docs/index.html
  delete mode 100644 docs/index.md
+
+
+
+ SELECT ID, Level FROM kid WHERE (Level = $MyLevel)
+
+ admin password: Boss!1234
+
+
+ cookies
+{
+   good: customizes experience, themes for users, remember user information: shopping carts, visual settings
+   bad: untrustworthy; erasily hacked
+
+   always encrypt cookies with keys; lets you know the cookies are correct; authenticate them
+}
+
+Good sources for passing data around a website
+{
+   JWT tokens: small cookies that can be exchanges for authentication traking etc
+      all about encoding cookies; kinda like a library (there are others)
+   olaf2: uses other auth like google sign in to authenticate users without needing username and pword
+
+}
+What is a web framework? : manage the intracasies of a connection so you can focus on user interacitons
+{
+   Swoole: a bunch of libraries built on top of php
+      make a quick server using libraries and the php engine
+      Web sockets: establishes a secure connection and maintains it to transfer data quickly and safely
+         encrypt the pipe, not the data in it
+   Node: this one is important
+   {
+      nodejs is way to communicate with the servers using javascript
+         started with crome: stripped all the GUI and kept the v8 chrome engine
+         can communicate directly with hardware through libraries
+         a few lines of code can stand up a server then communicate with databases etc.
+   }
+}
